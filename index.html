@@ -227,7 +227,32 @@
             <script>
 
                     var htmlEl = document.getElementById("costLabel");
-                    function postPayments(totalCost) {                        
+                    function postPayments(totalCost) { 
+
+                        var qtyTotalDropIn = document.getElementById("qtyDropIn").value.replace('$', '');
+                        if (document.getElementById("qtyDropIn").disabled == false)
+                        {
+                            totalCost = totalCost + 200 * qtyTotalDropIn;
+                        }
+
+                        var qtyTotalUndermount = document.getElementById("qtyUndermount").value.replace('$', '');
+                        if (document.getElementById("qtyUndermount").disabled == false)
+                        {
+                            totalCost = totalCost + 150 * qtyTotalUndermount;
+                        }
+
+                        var qtyTotalCooktop = document.getElementById("qtyCooktop").value.replace('$', '');
+                        if (document.getElementById("qtyCooktop").disabled == false)
+                        {
+                            totalCost = totalCost + 200 * qtyTotalCooktop;
+                        }
+
+                        var qtyTotalOutlet = document.getElementById("qtyOutlet").value.replace('$', '');
+                        if (document.getElementById("qtyOutlet").disabled == false)
+                        {
+                            totalCost = totalCost + 100 * qtyTotalOutlet;
+                        }
+
                         totalCost = totalCost.toLocaleString('en', 2); 
                         //parseFloat(totalCost).toFixed(2).toLocaleString('en');                      
                         htmlEl.innerText = "$" + totalCost;
