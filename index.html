@@ -19,10 +19,13 @@
     </select>
 
        <input type="number" class="calcInput" id="inDown" placeholder="Quantity" />
-      <label>sq.ft</label>
+      <label>sq ft.</label>
 
       <select id="edgesOption">
       </select>
+
+      <input type="number" class="calcInput" id="linFt" placeholder="Quantity" />
+      <label>ln ft.</label>
 
       <!--Commented out, cutouts will be selected using-->
       <!--<select id="laborOption">
@@ -109,7 +112,7 @@
 
             <div id="welcomeDiv"  class="answer_list" > </div>
             
-            <div>
+            <!--<div>
             <p>
                 <button type="button" class="addLineButton" id="btnAddLine">Add another item</button></form>
             </p>
@@ -117,7 +120,7 @@
             <p>
                 <button type="button" class="removeLineButton" id="btnRemoveLine">Remove Last Item</button></form>
             </p>
-        </div>
+        </div>-->
 
     
       <script>
@@ -275,9 +278,10 @@
                         var graniteCost = valGranite * quantitySelected;
                         
                         //Calculates cost of edges
+                        var quantityEdges = document.getElementById("linFt").value.replace('$', '');
                         var edgeSelect = document.getElementById("edgesOption");
                         var valEdges = edgeSelect.options[edgeSelect.selectedIndex].value;
-                        var edgesCost = valEdges * quantitySelected;
+                        var edgesCost = valEdges * quantityEdges;
 
                         //Calculates cost of sink labor cutouts
                         //var cutoutSelect = document.getElementById("laborOption");
@@ -291,7 +295,7 @@
                         postPayments(totalCost);
                     };
                     
-                    var btn2 = document.getElementById("btnAddLine");
+                    /*var btn2 = document.getElementById("btnAddLine");
                     btn2.onclick = function() {
                     //document.getElementById('welcomeDiv').style.display = "block";
 
@@ -315,7 +319,7 @@
                     //var element = document.getElementById("welcomeDiv");
                     //element.removeChild(para);
                     
-                        }
+                        }*/
     
                 </script>
 
