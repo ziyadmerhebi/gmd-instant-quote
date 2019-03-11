@@ -3,15 +3,17 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <link rel="stylesheet" href="app-styles.css">
     </head>
-    <body>
-        <h1>GMD Instant Quote: </h1>
-        <h2>Select a product type to begin calculating</h2>
+    <body onload="hideFunction()">
+        <h1>Studio 41 Instant Quote: </h1>
+        <!--<h2>Select a product type to begin calculating</h2>-->
         
         
     <div id="pricingContainer">
     <div id="pricingElement">
         
-            <label>Add Product Type: </label> <br>
+            <label>Add Product Type: </label> 
+            <label class="EdgesLabel">Add Edges: </label>          
+            <br>
       <select id="productType" onChange="changeProduct(this.value);">
           <option hidden="" value=selectCard>Select Product Type</option>
           <option value="selectGranite">Granite</option>
@@ -20,17 +22,97 @@
        </select>  
 
        <select id="productName">
+          <option hidden="" value=selectCard>Select Color</option>
     </select>
         
-       <input type="number" class="calcInput" id="inDown" min="30" placeholder="Quantity" />
-      <label>sq ft.</label><br><br>
+      <input type="number" class="calcInput" id="productQuantity" min="30" placeholder="Quantity" />
+      <label>sq ft.</label>
 
-      <label>Add Edges: </label> <br>
+      
       <select id="edgesOption">
       </select>
 
       <input type="number" class="calcInput" id="linFt" min="30" placeholder="Quantity" />
       <label>ln ft.</label>
+      <p class="calcAnswer">Subtotal:
+      <span id="row1Cost"></span></p>
+      <button type="button" hidden="true" class="deleteRowButton" id="btnDeleteRow">Delete Row</button>
+
+    </div>
+</div>
+
+<div id="pricingContainer2">
+    <div id="pricingElement2">
+        
+        <label>Add Product Type: </label> 
+        <label class="EdgesLabel">Add Edges: </label>          
+        <br>
+  <select id="productType2" onChange="changeProduct2(this.value);">
+      <option hidden="" value=selectCard>Select Product Type</option>
+      <option value="selectGranite">Granite</option>
+      <option value="selectQuartz">Quartz</option>
+      <option value="selectMarble">Marble</option>
+   </select>  
+
+   <select id="productName2">
+      <option hidden="" value=selectCard>Select Color</option>
+</select>
+    
+  <input type="number" class="calcInput" id="productQuantity2" min="30" placeholder="Quantity" />
+  <label>sq ft.</label>
+
+  
+  <select id="edgesOption2">
+  </select>
+
+  <input type="number" class="calcInput" id="linFt2" min="30" placeholder="Quantity" />
+  <label>ln ft.</label>
+  <button type="button" class="deleteRowButton" id="btnDeleteRow2">Delete Row</button>
+
+  <p class="calcAnswer">Subtotal:
+      <span id="row2Cost">0</span></p>
+
+    </div>
+</div>
+
+<div id="pricingContainer3" hidden="true">
+    <div id="pricingElement3">
+        
+        <label>Add Product Type: </label> 
+        <label class="EdgesLabel">Add Edges: </label>          
+        <br>
+  <select id="productType3" onChange="changeProduct3(this.value);">
+      <option hidden="" value=selectCard>Select Product Type</option>
+      <option value="selectGranite">Granite</option>
+      <option value="selectQuartz">Quartz</option>
+      <option value="selectMarble">Marble</option>
+   </select>  
+
+   <select id="productName3">
+      <option hidden="" value=selectCard>Select Color</option>
+</select>
+    
+  <input type="number" class="calcInput" id="productQuantity3" min="30" placeholder="Quantity" />
+  <label>sq ft.</label>
+
+  
+  <select id="edgesOption3">
+  </select>
+
+  <input type="number" class="calcInput" id="linFt3" min="30" placeholder="Quantity" />
+  <label>ln ft.</label>
+  <button type="button" class="deleteRowButton" id="btnDeleteRow3">Delete Row</button>
+
+  <p class="calcAnswer">Subtotal:
+      <span id="row3Cost">0</span></p>
+
+    </div>
+</div>
+
+<div>
+    <button type="button" class="addRowButton" id="btnAddRow">Add Row</button>
+
+</div>
 
       <!--Commented out, cutouts will be selected using-->
       <!--<select id="laborOption">
@@ -42,49 +124,50 @@
         <input type="checkbox" name="vehicle3" value="selectOversized"> Oversized Price Fee<br><br>
       </form>-->
 
-      <br><br><br>
+<div id="cutoutsContainer" class="cutoutsContainer">
       <label>Add Cutouts: </label> 
       <label class="RemovalSection">Removal: </label>
-      <br><br>
       <form id="cutoutSelection" >
-        <input type="checkbox" name="DropIn" value="selectDropIn" onchange="enableDropIn()"> Drop In Sink 
+        <input type="checkbox" name="DropIn" value="selectDropIn" onchange="enableDropIn()"> <label class="cutoutLabels">Drop In Sink</label>
         <input type="number" class="calcCutOuts" id="qtyDropIn" min="0" placeholder="Quantity" disabled/>
 
-        <input type="checkbox" name="RemoveLaminate" class="RemovalSection" value="selectLaminateRemoval" onchange="enableLaminateRemoval()"> Laminate Removal 
-        <input type="number" class="calcCutOuts" id="qtyLaminateRemoval" min="0" placeholder="Quantity" disabled/> <br>
+        <input type="checkbox" name="RemoveLaminate" class="RemovalSection" value="selectLaminateRemoval" onchange="enableLaminateRemoval()"> <label class="cutoutLabels">Laminate Removal</label> 
+        <input type="number" class="calcRemovals" id="qtyLaminateRemoval" min="0" placeholder="Quantity" disabled/> <br>
 
 
-
-        <input type="checkbox" name="Undermount" value="selectUndermount" onchange="enableUndermount()"> Undermount Sink
+        <input type="checkbox" name="Undermount" value="selectUndermount" onchange="enableUndermount()"> <label class="cutoutLabels">Undermount Sink</label>
         <input type="number" class="calcCutOuts" id="qtyUndermount" min="0" placeholder="Quantity" disabled/>
-        
-        <input type="checkbox" name="OtherRemoval" class="RemovalSection" value="selectOtherRemoval" onchange="enableOtherRemoval()"> Other Removal 
-        <input type="number" class="calcCutOuts" id="qtyOtherRemoval" min="0" placeholder="Quantity" disabled/> <br>
 
 
+        <input type="checkbox" name="OtherRemoval" class="RemovalSection" value="selectOtherRemoval" onchange="enableOtherRemoval()"> <label class="cutoutLabels">Other Removal</label>
+        <input type="number" class="calcRemovals" id="qtyOtherRemoval" min="0" placeholder="Quantity" disabled/> <br>
 
-        <input type="checkbox" name="Outlet" value="selectOutlet" onchange="enableOutlet()"> Outlet
+        <input type="checkbox" name="Outlet" value="selectOutlet" onchange="enableOutlet()"> <label class="cutoutLabels">Outlet</label>
         <input type="number" class="calcCutOuts" id="qtyOutlet" min="0" placeholder="Quantity" disabled/><br>
-        <input type="checkbox" name="CastIron" value="selectCastIron" onchange="enableCastIron()"> Cast Iron 
+        <input type="checkbox" name="CastIron" value="selectCastIron" onchange="enableCastIron()"> <label class="cutoutLabels">Cast Iron </label>
         <input type="number" class="calcCutOuts" id="qtyCastIron" min="0" placeholder="Quantity" disabled/> <br>
-        <input type="checkbox" name="Cooktop" value="selectCooktop" onchange="enableCooktop()"> Cooktop
+        <input type="checkbox" name="Cooktop" value="selectCooktop" onchange="enableCooktop()"> <label class="cutoutLabels">Cooktop</label>
         <input type="number" class="calcCutOuts" id="qtyCooktop" min="0" placeholder="Quantity" disabled/><br>
-        <input type="checkbox" name="Cooktop w/ Downdraft" value="selectDowndraft" onchange="enableDowndraft()"> Cooktop w/ Downdraft
+        <input type="checkbox" name="Cooktop w/ Downdraft" value="selectDowndraft" onchange="enableDowndraft()"> <label class="cutoutLabels">Cooktop w/ Downdraft</label>
         <input type="number" class="calcCutOuts" id="qtyDowndraft" min="0" placeholder="Quantity" disabled/><br>
-        <input type="checkbox" name="Vanity" value="selectVanity" onchange="enableVanity()"> Vanity
+        <input type="checkbox" name="Vanity" value="selectVanity" onchange="enableVanity()"> <label class="cutoutLabels">Vanity</label>
         <input type="number" class="calcCutOuts" id="qtyVanity" min="0" placeholder="Quantity" disabled/><br>
+
+
       </form>
 
+    </div>
+
+
+
+
       <p>
-        <button type="button" class="calcButton" id="btnCalculate">Calculate</button></form> 
+        <button type="button" class="calcButton" id="btnCalculate">Calculate</button>
     </p>
     
     <p class="calcAnswer"><b>Total Cost</b>:
         <br/>
         <br/><span id="costLabel">Please enter the values above.</span></p>
-
-    </div>
-</div>
     
 <div>
     <button onclick="window.print();">Print Form</button>

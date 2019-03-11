@@ -88,35 +88,114 @@ function enableDropIn() {
         document.getElementById("qtyOtherRemoval").disabled = true;
     }
  }
+
+
+
+
+var AddRowButton = document.getElementById("btnAddRow");
+AddRowButton.onclick = function() {
+
+     
+    if ($('#pricingContainer2').is(':visible'))
+    {
+        $('#pricingContainer3').show()
+
+    }
+    else {
+        $('#pricingContainer2').show()
+    }
+}
+
+
+var DeleteRowButton = document.getElementById("btnDeleteRow");
+DeleteRowButton.onclick = function() {
+
+    $('#pricingContainer').hide()
+
+    }
+
+var DeleteRowButton2 = document.getElementById("btnDeleteRow2");
+DeleteRowButton2.onclick = function() {
+
+    $('#pricingContainer2').hide()
+
+    }
+
+var DeleteRowButton3 = document.getElementById("btnDeleteRow3");
+DeleteRowButton3.onclick = function() {
+
+    $('#pricingContainer3').hide()
+
+    }
+    
+function hideFunction() {
+    $('#pricingContainer2').hide()
+}   
  
 
- //var selectedProduct = document.getElementById("productType");
- function validate()
- {
- var ddl = document.getElementById("productType");
- var selectedValue = ddl.options[ddl.selectedIndex].value;
- if (selectedValue == "selectCard")
-     {
-         alert("Please select a product type");
-     }
- }
 
  //Define json list
  var jsonList = {"GraniteTable" : [{"price" : "45","name" : "Black Pearl"},
                         {"price" : "65","name" : "Avalon White"},
                         {"price" : "45","name" : "Ganache"},
                         {"price" : "55","name" : "Grey Nuevo"},
-                        {"price" : "65","name" : "Bianco Antique"}],
+                        {"price" : "65","name" : "Bianco Antique"},
+
+                        {"price" : "42","name" : "Azul Platino"},
+                        {"price" : "42","name" : "White Sparkle"},
+                        {"price" : "42","name" : "Caledonia"},
+                        {"price" : "42","name" : "Dallas White"},
+                        {"price" : "52","name" : "New Venetian Gold"},
+                        {"price" : "52","name" : "Black Pearl"},
+                        {"price" : "52","name" : "Colonial White"},
+                        {"price" : "59","name" : "Fantasy Brown"},
+                        {"price" : "59","name" : "New River White"},
+                        {"price" : "59","name" : "Silver Cloud"},
+                        {"price" : "65","name" : "Snowfall"},
+                        {"price" : "65","name" : "Bianco Antico"},
+                        {"price" : "65","name" : "Azul Celeste"},
+                        {"price" : "65","name" : "Delicatus White"},
+                        {"price" : "90","name" : "Taj Mahal"},
+                        {"price" : "90","name" : "Zermatt"},
+                        {"price" : "90","name" : "Florida Wave"},
+                        {"price" : "90","name" : "Super White"}],
+
                         "QuartzTable" : [{"price": "55", "name" : "Frost White"},
                         {"price": "55", "name" : "Iced Gray"},
                         {"price": "55", "name" : "Sparkling White"},
                         {"price": "59", "name" : "Alpine"},
                         {"price": "59", "name" : "Arctic White"},
-                        {"price": "59", "name" : "Meridian Gray White"}],
+                        {"price": "59", "name" : "Meridian Gray"},
+                        {"price": "59", "name" : "Mystic Gray"},
+                        {"price": "59", "name" : "Pearl Gray"},
+                        {"price": "69", "name" : "Carrara Grigio"},
+                        {"price": "69", "name" : "Carrara Marmi"},
+                        {"price": "69", "name" : "Carrara Mist"},
+                        {"price": "69", "name" : "Fossil Gray"},
+                        {"price": "75", "name" : "Calacatta Vicenza"},
+                        {"price": "75", "name" : "Concerto"},
+                        {"price": "75", "name" : "Shadow Gray"},
+                        {"price": "79", "name" : "Statuary Classique Unbookmatched"},
+                        {"price": "79", "name" : "Babylon Gray"},
+                        {"price": "79", "name" : "Calacatta Classique Unbook Matched"},
+                        {"price": "79", "name" : "Fairy White"},
+                        {"price": "79", "name" : "Gray Lagoon"},
+                        {"price": "79", "name" : "Pacific Salt"},
+                        {"price": "85", "name" : "Blanca Arabescato"},
+                        {"price": "85", "name" : "Blanca Statuarietto"},
+                        {"price": "85", "name" : "Cashmere Carrara"},
+                        {"price": "85", "name" : "Chakra Beige"},
+                        {"price": "85", "name" : "Rolling Fog"},
+                        {"price": "95", "name" : "Calacatta Classique Book Matched"},
+                        {"price": "5", "name" : "Glacier White"},
+                        {"price": "95", "name" : "Calacata Laza"},
+                        {"price": "95", "name" : "Perla White"},
+                        {"price": "95", "name" : "Statuary Classique Book Matched"}],
                         "MarbleTable" : [{"price": "55", "name" : "Fantasy Brown"},
                             {"price": "65", "name" : "Blue Persia"}]}
         
 
+            //define row 1 change product
             function changeProduct(value) {
                 
                 if (value == "selectGranite") {
@@ -143,6 +222,59 @@ function enableDropIn() {
             };
 
 
+            //DEFINE ROW 2 CHANGE PRODUCT
+            function changeProduct2(value) {
+                
+                if (value == "selectGranite") {
+                    var listItems= "";
+                    for (var i = 0; i < jsonList.GraniteTable.length; i++){
+                        listItems+= "<option value='" + jsonList.GraniteTable[i].price + "'>" + jsonList.GraniteTable[i].name + "</option>";
+                    }
+                    $("#productName2").html(listItems);
+                }
+                else if (value == "selectQuartz") {
+                    var listItems= "";
+                    for (var i = 0; i < jsonList.QuartzTable.length; i++){
+                        listItems+= "<option value='" + jsonList.QuartzTable[i].price + "'>" + jsonList.QuartzTable[i].name + "</option>";
+                    }
+                    $("#productName2").html(listItems);
+                }
+                else if (value == "selectMarble") {
+                    var listItems= "";
+                    for (var i = 0; i < jsonList.MarbleTable.length; i++){
+                        listItems+= "<option value='" + jsonList.MarbleTable[i].price + "'>" + jsonList.MarbleTable[i].name + "</option>";
+                    }
+                    $("#productName2").html(listItems);
+                }
+            };
+
+            //DEFINE ROW 3 CHANGE PRODUCT
+            function changeProduct3(value) {
+                
+                if (value == "selectGranite") {
+                    var listItems= "";
+                    for (var i = 0; i < jsonList.GraniteTable.length; i++){
+                        listItems+= "<option value='" + jsonList.GraniteTable[i].price + "'>" + jsonList.GraniteTable[i].name + "</option>";
+                    }
+                    $("#productName3").html(listItems);
+                }
+                else if (value == "selectQuartz") {
+                    var listItems= "";
+                    for (var i = 0; i < jsonList.QuartzTable.length; i++){
+                        listItems+= "<option value='" + jsonList.QuartzTable[i].price + "'>" + jsonList.QuartzTable[i].name + "</option>";
+                    }
+                    $("#productName3").html(listItems);
+                }
+                else if (value == "selectMarble") {
+                    var listItems= "";
+                    for (var i = 0; i < jsonList.MarbleTable.length; i++){
+                        listItems+= "<option value='" + jsonList.MarbleTable[i].price + "'>" + jsonList.MarbleTable[i].name + "</option>";
+                    }
+                    $("#productName3").html(listItems);
+                }
+            };
+
+
 // Define edges List?            
 var edgesList = {"EdgesTable" : [{"price" : "0","name" : "No Edges"},
             {"price" : "0","name" : "Eased"},
@@ -162,26 +294,19 @@ for (var i = 0; i < edgesList.EdgesTable.length; i++){
     listItems+= "<option value='" + edgesList.EdgesTable[i].price + "'>" + edgesList.EdgesTable[i].name + "</option>";
 }
 $("#edgesOption").html(listItems);
+
+//populate row 2 edges
+$("#edgesOption2").html(listItems);
+
+//populate row 3 edges
+$("#edgesOption3").html(listItems);
+
 });
 
-//Define labor list
-var laborList = {"LaborTable" : [{"price" : "0","name" : "No Cut Out"},
-                        {"price" : "200","name" : "Undermount Sink Cut & Polish"},
-                        {"price" : "100","name" : "Drop In Sink/Cooktop Cut Out"},
-                        {"price" : "45","name" : "Outlet Cut Out"},
-                        {"price" : "50","name" : "Vessel Bowl Cut Out"}]}
-        
-            $(document).ready(function(){
-            /*var listItems= "";
-            for (var i = 0; i < laborList.LaborTable.length; i++){
-                listItems+= "<option value='" + laborList.LaborTable[i].price + "'>" + laborList.LaborTable[i].name + "</option>";
-            }
-            $("#laborOption").html(listItems);*/
-            });    
 
 
 
-            //
+            //Cutout calculations
             var htmlEl = document.getElementById("costLabel");
             function postPayments(totalCost) { 
 
@@ -242,22 +367,54 @@ var laborList = {"LaborTable" : [{"price" : "0","name" : "No Cut Out"},
                 totalCost = totalCost.toLocaleString('en', 2); 
                 //parseFloat(totalCost).toFixed(2).toLocaleString('en');                      
                 htmlEl.innerText = "$" + totalCost;
+
             }
+
+            //Functions that display the Row costs
+            var htmlROW1 = document.getElementById("row1Cost");
+            function postRowCost(row1Cost) {              
+
+                row1Cost = row1Cost.toLocaleString('en', 2); 
+                //parseFloat(totalCost).toFixed(2).toLocaleString('en');                      
+                htmlROW1.innerText = "$" + row1Cost;
+
+            }
+
+            var htmlROW2 = document.getElementById("row2Cost");
+            function postSecondRowCost(row2Cost) {              
+
+                row2Cost = row2Cost.toLocaleString('en', 2); 
+                //parseFloat(totalCost).toFixed(2).toLocaleString('en');                      
+                htmlROW2.innerText = "$" + row2Cost;
+
+            }
+
+            var htmlROW3 = document.getElementById("row3Cost");
+            function postThirdRowCost(row3Cost) {              
+
+                row3Cost = row3Cost.toLocaleString('en', 2); 
+                //parseFloat(totalCost).toFixed(2).toLocaleString('en');                      
+                htmlROW3.innerText = "$" + row3Cost;
+
+            }
+
+
             var btn = document.getElementById("btnCalculate");
             btn.onclick = function() {
 
+                //ROW 1 CALCULATIONS:
                 //Check to make sure that a product type is selected
                 var ddl = document.getElementById("productType");
                 var selectedValue = ddl.options[ddl.selectedIndex].value;
                     if (selectedValue == "selectCard")
                 {
                     alert("Please select a product type");
-                }   
+                }                
 
                 //Calculates cost based on what product is selected
                 var e = document.getElementById("productName");
                 var valGranite = e.options[e.selectedIndex].value;
-                var quantitySelected = document.getElementById("inDown").value.replace('$', '');
+                var quantitySelected = document.getElementById("productQuantity").value.replace('$', '');
                 var graniteCost = valGranite * quantitySelected;
                 
                 //Calculates cost of edges
@@ -265,16 +422,79 @@ var laborList = {"LaborTable" : [{"price" : "0","name" : "No Cut Out"},
                 var edgeSelect = document.getElementById("edgesOption");
                 var valEdges = edgeSelect.options[edgeSelect.selectedIndex].value;
                 var edgesCost = valEdges * quantityEdges;
+                var row1Cost = graniteCost + edgesCost;
 
                 //Calculates cost of sink labor cutouts
                 //var cutoutSelect = document.getElementById("laborOption");
                 //var valCutout = cutoutSelect.options[cutoutSelect.selectedIndex].value;
                 //var cutoutCost = valCutout * 1;
 
-                
+                var totalCost = row1Cost;
 
-                var totalCost = graniteCost + edgesCost; //+ cutoutCost;
-                console.log(totalCost);
+
+
+                //ROW 2 CALCULATIONS:     
+                if ($('#pricingContainer2').is(':visible'))
+                {
+
+                    var ddl = document.getElementById("productType2");
+                    var selectedValue = ddl.options[ddl.selectedIndex].value;
+                        if (selectedValue == "selectCard")
+                    {
+                        alert("Please select a product type for Row 2");
+                    }        
+
+                    //Calculates cost based on what product is selected
+                    var e = document.getElementById("productName2");
+                    var valGranite2 = e.options[e.selectedIndex].value;
+                    var quantitySelected2 = document.getElementById("productQuantity2").value.replace('$', '');
+                    var graniteCost2 = valGranite2 * quantitySelected2;
+                    
+                    //Calculates cost of edges
+                    var quantityEdges2 = document.getElementById("linFt2").value.replace('$', '');
+                    var edgeSelect2 = document.getElementById("edgesOption2");
+                    var valEdges2 = edgeSelect2.options[edgeSelect2.selectedIndex].value;
+                    var edgesCost2 = valEdges2 * quantityEdges2;
+
+                    
+
+                    var row2Cost = graniteCost2 + edgesCost2;
+                    totalCost = totalCost + row2Cost; //+ cutoutCost;
+                    postSecondRowCost(row2Cost);
+
+                }
+
+                if ($('#pricingContainer3').is(':visible'))
+                {
+
+                    var ddl = document.getElementById("productType3");
+                    var selectedValue = ddl.options[ddl.selectedIndex].value;
+                        if (selectedValue == "selectCard")
+                    {
+                        alert("Please select a product type for Row 3");
+                    }        
+
+                    //Calculates cost based on what product is selected
+                    var e = document.getElementById("productName3");
+                    var valGranite3 = e.options[e.selectedIndex].value;
+                    var quantitySelected3 = document.getElementById("productQuantity3").value.replace('$', '');
+                    var graniteCost3 = valGranite3 * quantitySelected3;
+                    
+                    //Calculates cost of edges
+                    var quantityEdges3 = document.getElementById("linFt3").value.replace('$', '');
+                    var edgeSelect3 = document.getElementById("edgesOption3");
+                    var valEdges3 = edgeSelect3.options[edgeSelect3.selectedIndex].value;
+                    var edgesCost3 = valEdges3 * quantityEdges3;
+
+                    
+
+                    var row3Cost = graniteCost3 + edgesCost3;
+                    totalCost = totalCost + row3Cost; //+ cutoutCost;
+                    postThirdRowCost(row3Cost);
+
+                }
+                
+                postRowCost(row1Cost);
                 postPayments(totalCost);
             };
             

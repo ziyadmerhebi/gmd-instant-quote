@@ -138,10 +138,10 @@
   }
 
   ::placeholder {
-      font-size: 1.5em;
+      font-size: 1em;
   }
 
-  .inDown, label {
+  .productQuantity, .productQuantity2, label {
       font-size: 1.5em;
       margin-right: 1.5em;
       border: 5px;
@@ -152,13 +152,14 @@
       border-radius: 0.5em;
       box-sizing: 3em;
       height: 2.75em;
+      width: 7.5em;
   }
 
   .RemovalSection {
     margin-left: 20em;
   }
 
-  .calcCutOuts {
+  .calcCutOuts, .calcRemovals  {
     border-radius: 0.5em;
     box-sizing: 3em;
     height: 2.5em;
@@ -166,8 +167,31 @@
     width: 7.5em;
 }
 
+/*
+.cutoutsContainer {
+  display: grid;
+  grid-template-columns: 35%;
+  grid-template-rows: 25%;
+  
+
+}
+
+.calcCutOuts {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+
+.calcRemovals {
+  grid-column-start: 4;
+  grid-column-end: 4;
+}*/
+
   button {
       border-radius: 0.25em;
+  }
+
+  .EdgesLabel {
+    margin-left: 13em;
   }
 
   .calcButton {
@@ -190,6 +214,10 @@
     padding-top: 10px;
     font-family: 'CorporateSLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
+
+  .cutoutLabels {
+    font-size: 1em;
+  }
   
   #outMonthly {
     color: #AA475D;
@@ -206,4 +234,55 @@
       margin-right:35%;
     }
 }
+
+@media print 
+{
+    @page {
+      size: A4; /* DIN A4 standard, Europe */
+      margin:0;
+    }
+    html, body {
+        width: 200mm;
+        /* height: 297mm; */
+        height: 282mm;
+        font-size: 11px;
+        background: #FFF;
+        overflow:visible;
+    }
+    button {
+      visibility: hidden;
+    }
+    body {
+        padding-top:15mm;
+    }
+    
+    input[type=checkbox] {
+      visibility: hidden;
+    }
+
+    input[type=checkbox] + label {
+      visibility: hidden;
+    }
+
+    input[type=checkbox]:checked + label {
+      visibility: visible;
+    }
+
+    input[type=number] {
+      visibility: hidden;
+    }
+
+    input[type=number]:enabled {
+      visibility: visible;
+    }
+  }
+
+
+    /*h1, ul, li {margin: 0; padding: 0;}
+    input {c: left;}
+    select {float: right; color: #FF9933;}
+    ul {list-style: none;}
+    ul li {float: left; padding-left: 20px;}
+*/
+
   
