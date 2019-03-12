@@ -497,6 +497,12 @@ $("#edgesOption3").html(listItems);
                 postRowCost(row1Cost);
                 postPayments(totalCost);
             };
+
+            var btnPrint = document.getElementById("printButton");
+            btnPrint.onclick = function() {
+                btn.click();
+                window.print();
+            }
             
             /*var btn2 = document.getElementById("btnAddLine");
             btn2.onclick = function() {

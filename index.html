@@ -28,16 +28,21 @@
       <input type="number" class="calcInput" id="productQuantity" min="30" placeholder="Quantity" />
       <label>sq ft.</label>
 
-      
+            <!--<label class="hiddenEdgesLabel" hidden="true">Add Edges: </label>-->
+
+    <section class="edgesSelectBlock">
       <select id="edgesOption">
       </select>
 
-      <input type="number" class="calcInput" id="linFt" min="30" placeholder="Quantity" />
-      <label>ln ft.</label>
-      <p class="calcAnswer">Subtotal:
-      <span id="row1Cost"></span></p>
-      <button type="button" hidden="true" class="deleteRowButton" id="btnDeleteRow">Delete Row</button>
+      
+        <input type="number" class="calcInput" id="linFt" min="30" placeholder="Quantity" />
+        <label>ln ft.</label>
+    </section>
+        <p class="calcAnswer">Subtotal:
+        <span id="row1Cost"></span></p>
+        <button type="button" hidden="true" class="deleteRowButton" id="btnDeleteRow">Delete Row</button>
 
+        
     </div>
 </div>
 
@@ -61,12 +66,13 @@
   <input type="number" class="calcInput" id="productQuantity2" min="30" placeholder="Quantity" />
   <label>sq ft.</label>
 
-  
-  <select id="edgesOption2">
+  <section class="edgesSelectBlock">
+  <select id="edgesOption2" class="edgesSection">
   </select>
 
   <input type="number" class="calcInput" id="linFt2" min="30" placeholder="Quantity" />
   <label>ln ft.</label>
+</section>
   <button type="button" class="deleteRowButton" id="btnDeleteRow2">Delete Row</button>
 
   <p class="calcAnswer">Subtotal:
@@ -95,12 +101,14 @@
   <input type="number" class="calcInput" id="productQuantity3" min="30" placeholder="Quantity" />
   <label>sq ft.</label>
 
-  
-  <select id="edgesOption3">
+
+  <section class="edgesSelectBlock"></section>
+  <select id="edgesOption3" class="edgesSection">
   </select>
 
   <input type="number" class="calcInput" id="linFt3" min="30" placeholder="Quantity" />
   <label>ln ft.</label>
+</section>
   <button type="button" class="deleteRowButton" id="btnDeleteRow3">Delete Row</button>
 
   <p class="calcAnswer">Subtotal:
@@ -170,7 +178,7 @@
         <br/><span id="costLabel">Please enter the values above.</span></p>
     
 <div>
-    <button onclick="window.print();">Print Form</button>
+    <button id="printButton" >Print Form</button>
 </div>      
 
             <div id="welcomeDiv"  class="answer_list" > </div>

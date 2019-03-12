@@ -235,6 +235,10 @@
     }
 }
 
+.RemovalSection {
+  align-items: center;
+}
+
 @media print 
 {
     @page {
@@ -244,16 +248,22 @@
     html, body {
         width: 200mm;
         /* height: 297mm; */
-        height: 282mm;
+        height: 297mm;
         font-size: 11px;
         background: #FFF;
         overflow:visible;
+        margin: auto;
+        line-height: 70%;
     }
     button {
       visibility: hidden;
     }
     body {
         padding-top:15mm;
+    }
+
+    form {
+      max-height: 1.5em;
     }
     
     input[type=checkbox] {
@@ -275,6 +285,36 @@
     input[type=number]:enabled {
       visibility: visible;
     }
+
+    .edgesSelectBlock {
+      display: block;
+    }
+
+    .EdgesLabel {
+      visibility: hidden;
+    }
+    
+    #linFt, #linFt2, #linFt3 {
+      display: inline-block;
+    }
+    .cutoutsContainer {
+      line-height: 50%;
+      
+    }
+
+    .RemovalSection {
+      margin-left: -1.5em;
+    }
+
+    select {
+      max-width: 10em;
+    }
+
+    input[visibility = hidden]{
+      size: 0px;
+    }
+    
+
   }
 
 
