@@ -117,6 +117,17 @@
     font-family: 'CorporateSLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
+  #studioLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+  }
+
+  #btnAddRow {
+    visibility: hidden;
+  }
+
   h2 {
     color: #3d4266;
     font-size: 1.5em;
@@ -225,6 +236,15 @@
     text-align: center;
     padding-top: 10px;
     font-family: 'CorporateSLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .commentSection {
+    font-size: 1.25em;
+    margin-left:
+  }
+
+  .bottomDisclaimer {
+    text-align: center;
   }
   
   @media (max-width: 680px) {

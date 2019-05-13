@@ -4,7 +4,8 @@
             <link rel="stylesheet" href="app-styles.css">
     </head>
     <body onload="hideFunction()">
-        <h1>Studio 41 Instant Quote: </h1>
+      <img src="https://www.shopstudio41.com/images/logo.png" alt="Studio 41" id="studioLogo" />
+        <h1>Instant Quote: </h1>
         <!--<h2>Select a product type to begin calculating</h2>-->
         
         
@@ -12,7 +13,7 @@
     <div id="pricingElement">
         
             <label>Add Product Type: </label> 
-            <label class="EdgesLabel">Add Edges: </label>          
+            <!--<label class="EdgesLabel">Add Edges: </label> -->         
             <br>
       <select id="productType" onChange="changeProduct(this.value);">
           <option hidden="" value=selectCard>Select Product Type</option>
@@ -26,9 +27,11 @@
     </select>
         
       <input type="number" class="calcInput" id="productQuantity" min="30" placeholder="Quantity" />
-      <label>sq ft.</label>
+      <label>sq ft.</label><br>
 
-            <!--<label class="hiddenEdgesLabel" hidden="true">Add Edges: </label>-->
+      <label>Add Edges: </label>
+
+      <!--<label class="hiddenEdgesLabel" hidden="true">Add Edges: </label>-->
 
     <section class="edgesSelectBlock">
       <select id="edgesOption">
@@ -119,6 +122,8 @@
 
 <div>
     <button type="button" class="addRowButton" id="btnAddRow">Add Row</button>
+    <textarea rows="4" cols="50" class="commentSection" form="usrform">
+      Comments</textarea>
 
 </div>
 
@@ -142,16 +147,15 @@
         <input type="checkbox" name="RemoveLaminate" class="RemovalSection" value="selectLaminateRemoval" onchange="enableLaminateRemoval()"> <label class="cutoutLabels">Laminate Removal</label> 
         <input type="number" class="calcRemovals" id="qtyLaminateRemoval" min="0" placeholder="Quantity" disabled/> <br>
 
-
         <input type="checkbox" name="Undermount" value="selectUndermount" onchange="enableUndermount()"> <label class="cutoutLabels">Undermount Sink</label>
         <input type="number" class="calcCutOuts" id="qtyUndermount" min="0" placeholder="Quantity" disabled/>
-
 
         <input type="checkbox" name="OtherRemoval" class="RemovalSection" value="selectOtherRemoval" onchange="enableOtherRemoval()"> <label class="cutoutLabels">Other Removal</label>
         <input type="number" class="calcRemovals" id="qtyOtherRemoval" min="0" placeholder="Quantity" disabled/> <br>
 
         <input type="checkbox" name="Outlet" value="selectOutlet" onchange="enableOutlet()"> <label class="cutoutLabels">Outlet</label>
-        <input type="number" class="calcCutOuts" id="qtyOutlet" min="0" placeholder="Quantity" disabled/><br>
+        <input type="number" class="calcCutOuts" id="qtyOutlet" min="0" placeholder="Quantity" disabled/>
+        
         <input type="checkbox" name="CastIron" value="selectCastIron" onchange="enableCastIron()"> <label class="cutoutLabels">Cast Iron </label>
         <input type="number" class="calcCutOuts" id="qtyCastIron" min="0" placeholder="Quantity" disabled/> <br>
         <input type="checkbox" name="Cooktop" value="selectCooktop" onchange="enableCooktop()"> <label class="cutoutLabels">Cooktop</label>
@@ -161,12 +165,16 @@
         <input type="checkbox" name="Vanity" value="selectVanity" onchange="enableVanity()"> <label class="cutoutLabels">Vanity</label>
         <input type="number" class="calcCutOuts" id="qtyVanity" min="0" placeholder="Quantity" disabled/><br>
 
+        <input type="checkbox" name="ExtraMileage" value="selectExtraMileage" onchange="enableExtraMileage()"> <label class="cutoutLabels">Extra Mileage</label>
+        <input type="number" class="calcCutOuts" id="qtyExtraMileage" min="0" placeholder="Quantity" disabled/><br>
+
+        <input type="checkbox" name="Backsplash" value="selectBacksplash" onchange="enableBacksplash()"> <label class="cutoutLabels">Backsplash</label>
+        <input type="number" class="calcCutOuts" id="qtyBacksplash" min="0" placeholder="Quantity" disabled/><br>
+
 
       </form>
 
     </div>
-
-
 
 
       <p>
@@ -176,6 +184,12 @@
     <p class="calcAnswer"><b>Total Cost</b>:
         <br/>
         <br/><span id="costLabel">Please enter the values above.</span></p>
+    <p class="bottomDisclaimer">
+      <br>
+      *This is only an estimate. Final price will be determined after a final measure.
+    <br>
+      Good for 30 days.
+  </p>
     
 <div>
     <button id="printButton" >Print Form</button>

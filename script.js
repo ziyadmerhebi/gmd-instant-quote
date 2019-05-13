@@ -89,6 +89,26 @@ function enableDropIn() {
     }
  }
 
+ function enableExtraMileage() {
+    if (document.getElementById("qtyExtraMileage").disabled == true)
+    {
+        document.getElementById("qtyExtraMileage").disabled = false;
+    }
+    else {
+        document.getElementById("qtyOtherRemoval").disabled = true;
+    }
+ }
+
+ function enableBacksplash() {
+    if (document.getElementById("qtyBacksplash").disabled == true)
+    {
+        document.getElementById("qtyBacksplash").disabled = false;
+    }
+    else {
+        document.getElementById("qtyBacksplash").disabled = true;
+    }
+ }
+
 
 
 
@@ -135,64 +155,64 @@ function hideFunction() {
 
 
  //Define json list
- var jsonList = {"GraniteTable" : [{"price" : "45","name" : "Black Pearl"},
-                        {"price" : "65","name" : "Avalon White"},
-                        {"price" : "45","name" : "Ganache"},
-                        {"price" : "55","name" : "Grey Nuevo"},
-                        {"price" : "65","name" : "Bianco Antique"},
+ var jsonList = {"GraniteTable" : [{"price" : "42","name" : "Azul Platino - $42"},
+                        {"price" : "42","name" : "White Sparkle - $42"},
+                        {"price" : "42","name" : "Caledonia - $42"},
+                        {"price" : "42","name" : "Dallas White - $42"},
+                        {"price" : "45","name" : "Black Pearl - $45"},                      
+                        {"price" : "45","name" : "Ganache - $45"},
+                        
+                        {"price" : "52","name" : "New Venetian Gold - $52"},
+                        {"price" : "52","name" : "Black Pearl - $52"},
+                        {"price" : "52","name" : "Colonial White - $52"},
+                        {"price" : "55","name" : "Grey Nuevo - $55"},
+                        {"price" : "59","name" : "Fantasy Brown - $59"},
+                        {"price" : "59","name" : "New River White - $59"},
+                        {"price" : "59","name" : "Silver Cloud - $59"},
+                        {"price" : "65","name" : "Snowfall - $65"},
+                        {"price" : "65","name" : "Bianco Antico - $65"},
+                        {"price" : "65","name" : "Azul Celeste - $65"},
+                        {"price" : "65","name" : "Delicatus White - $65"},
+                        {"price" : "65","name" : "Bianco Antique - $65"},
+                        {"price" : "65","name" : "Avalon White - $65"},
+                        {"price" : "90","name" : "Taj Mahal - $90"},
+                        {"price" : "90","name" : "Zermatt - $90"},
+                        {"price" : "90","name" : "Florida Wave - $90"},
+                        {"price" : "90","name" : "Super White - $90"}],
 
-                        {"price" : "42","name" : "Azul Platino"},
-                        {"price" : "42","name" : "White Sparkle"},
-                        {"price" : "42","name" : "Caledonia"},
-                        {"price" : "42","name" : "Dallas White"},
-                        {"price" : "52","name" : "New Venetian Gold"},
-                        {"price" : "52","name" : "Black Pearl"},
-                        {"price" : "52","name" : "Colonial White"},
-                        {"price" : "59","name" : "Fantasy Brown"},
-                        {"price" : "59","name" : "New River White"},
-                        {"price" : "59","name" : "Silver Cloud"},
-                        {"price" : "65","name" : "Snowfall"},
-                        {"price" : "65","name" : "Bianco Antico"},
-                        {"price" : "65","name" : "Azul Celeste"},
-                        {"price" : "65","name" : "Delicatus White"},
-                        {"price" : "90","name" : "Taj Mahal"},
-                        {"price" : "90","name" : "Zermatt"},
-                        {"price" : "90","name" : "Florida Wave"},
-                        {"price" : "90","name" : "Super White"}],
-
-                        "QuartzTable" : [{"price": "55", "name" : "Frost White"},
-                        {"price": "55", "name" : "Iced Gray"},
-                        {"price": "55", "name" : "Sparkling White"},
-                        {"price": "59", "name" : "Alpine"},
-                        {"price": "59", "name" : "Arctic White"},
-                        {"price": "59", "name" : "Meridian Gray"},
-                        {"price": "59", "name" : "Mystic Gray"},
-                        {"price": "59", "name" : "Pearl Gray"},
-                        {"price": "69", "name" : "Carrara Grigio"},
-                        {"price": "69", "name" : "Carrara Marmi"},
-                        {"price": "69", "name" : "Carrara Mist"},
-                        {"price": "69", "name" : "Fossil Gray"},
-                        {"price": "75", "name" : "Calacatta Vicenza"},
-                        {"price": "75", "name" : "Concerto"},
-                        {"price": "75", "name" : "Shadow Gray"},
-                        {"price": "79", "name" : "Statuary Classique Unbookmatched"},
-                        {"price": "79", "name" : "Babylon Gray"},
-                        {"price": "79", "name" : "Calacatta Classique Unbook Matched"},
-                        {"price": "79", "name" : "Fairy White"},
-                        {"price": "79", "name" : "Gray Lagoon"},
-                        {"price": "79", "name" : "Pacific Salt"},
-                        {"price": "85", "name" : "Blanca Arabescato"},
-                        {"price": "85", "name" : "Blanca Statuarietto"},
-                        {"price": "85", "name" : "Cashmere Carrara"},
-                        {"price": "85", "name" : "Chakra Beige"},
-                        {"price": "85", "name" : "Rolling Fog"},
-                        {"price": "95", "name" : "Calacatta Classique Book Matched"},
-                        {"price": "5", "name" : "Glacier White"},
-                        {"price": "95", "name" : "Calacata Laza"},
-                        {"price": "95", "name" : "Perla White"},
-                        {"price": "95", "name" : "Statuary Classique Book Matched"}],
-                        "MarbleTable" : [{"price": "55", "name" : "Fantasy Brown"},
-                            {"price": "65", "name" : "Blue Persia"}]}
+                        "QuartzTable" : [{"price": "55", "name" : "Frost White - $55"},
+                        {"price": "55", "name" : "Iced Gray - $55"},
+                        {"price": "55", "name" : "Sparkling White - $55"},
+                        {"price": "59", "name" : "Alpine - $59"},
+                        {"price": "59", "name" : "Arctic White - $59"},
+                        {"price": "59", "name" : "Meridian Gray - $59"},
+                        {"price": "59", "name" : "Mystic Gray - $59"},
+                        {"price": "59", "name" : "Pearl Gray - $59"},
+                        {"price": "69", "name" : "Carrara Grigio - $69"},
+                        {"price": "69", "name" : "Carrara Marmi - $69"},
+                        {"price": "69", "name" : "Carrara Mist - $69"},
+                        {"price": "69", "name" : "Fossil Gray - $69"},
+                        {"price": "75", "name" : "Calacatta Vicenza - $75"},
+                        {"price": "75", "name" : "Concerto - $75"},
+                        {"price": "75", "name" : "Shadow Gray - $75"},
+                        {"price": "79", "name" : "Statuary Classique UnbookMatched - $79"},
+                        {"price": "79", "name" : "Babylon Gray - $79"},
+                        {"price": "79", "name" : "Calacatta Classique UnbookMatched - $79"},
+                        {"price": "79", "name" : "Fairy White - $79"},
+                        {"price": "79", "name" : "Gray Lagoon - $79"},
+                        {"price": "79", "name" : "Pacific Salt - $79"},
+                        {"price": "85", "name" : "Blanca Arabescato - $85"},
+                        {"price": "85", "name" : "Blanca Statuarietto - $85"},
+                        {"price": "85", "name" : "Cashmere Carrara - $85"},
+                        {"price": "85", "name" : "Chakra Beige - $85"},
+                        {"price": "85", "name" : "Rolling Fog - $85"},
+                        {"price": "95", "name" : "Calacatta Classique BookMatched - $95"},
+                        {"price": "95", "name" : "Glacier White - $95"},
+                        {"price": "95", "name" : "Calacata Laza - $95"},
+                        {"price": "95", "name" : "Perla White - $95"},
+                        {"price": "95", "name" : "Statuary Classique BookMatched - $95"}],
+                        "MarbleTable" : [{"price": "55", "name" : "Fantasy Brown - $55"},
+                            {"price": "65", "name" : "Blue Persia - $65"}]}
         
 
             //define row 1 change product
@@ -362,6 +382,18 @@ $("#edgesOption3").html(listItems);
                 if (document.getElementById("qtyOtherRemoval").disabled == false)
                 {
                     totalCost = totalCost + 500 * qtyTotalOtherRemoval;
+                }
+
+                var qtyTotalExtraMileage = document.getElementById("qtyExtraMileage").value.replace('$', '');
+                if (document.getElementById("qtyExtraMileage").disabled == false)
+                {
+                    totalCost = totalCost + 500 * qtyTotalExtraMileage;
+                }
+
+                var qtyTotalBacksplash = document.getElementById("qtyBacksplash").value.replace('$', '');
+                if (document.getElementById("qtyBacksplash").disabled == false)
+                {
+                    totalCost = totalCost + 500 * qtyTotalBacksplash;
                 }
 
                 totalCost = totalCost.toLocaleString('en', 2); 
